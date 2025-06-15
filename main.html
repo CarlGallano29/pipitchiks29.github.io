@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relationship Counter</title>
+  <style>
+    /* Body Styling */
+    body {
+      font-family: "Press Start 2P", cursive;
+      background: #ffc0cb;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    /* Navigation Bar Styling */
+    .navbar {
+      width: 100%;
+      background-color: #d6336c;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    }
+
+    .navbar ul li {
+      margin: 5px 10px; /* Adjust spacing for mobile */
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.9em; /* Slightly smaller font for mobile */
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffcccb;
+    }
+
+    /* Counter Container */
+    .counter-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 20px; /* Reduced padding for mobile */
+      width: 90%; /* Adjust width for smaller screens */
+      max-width: 400px;
+      position: relative;
+      top: 80px; /* Adjusted for mobile view */
+    }
+
+    /* Title Styling */
+    .counter-container h1 {
+      font-size: 1.2em; /* Smaller font size for mobile */
+      color: #d6336c;
+      margin-bottom: 15px;
+    }
+
+    /* Counter Styling */
+    .counter {
+      font-size: 1em; /* Adjusted font size for mobile */
+      color: #333;
+      line-height: 1.5em;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar ul li a {
+        font-size: 0.8em; /* Smaller font size for very small screens */
+      }
+
+      .counter-container {
+        padding: 15px; /* Further reduced padding for very small screens */
+        top: 60px; /* Adjusted for smaller screens */
+      }
+
+      .counter-container h1 {
+        font-size: 1em; /* Smaller title font size */
+      }
+
+      .counter {
+        font-size: 0.9em; /* Smaller counter font size */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="letter.html">Letter</a></li>
+    
+    </ul>
+  </div>
+
+  <!-- Counter Container -->
+  <div class="counter-container">
+    <h1>Time We've Spent Together</h1>
+    <div class="counter" id="counter">Loading...</div>
+  </div>
+
+  <script>
+    const startDate = new Date("2024-10-29T09:45:00"); // Start date set to October 29, 2024, 9:45 AM
+
+    function updateCounter() {
+      const now = new Date();
+      const diffMs = now - startDate;
+
+      const totalYears = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365));
+      const totalMonths = Math.floor((diffMs % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+      const totalDays = Math.floor((diffMs % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      const remainingHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const remainingMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      const remainingSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+      document.getElementById("counter").innerHTML = `
+        ${totalYears} Years<br>
+        ${totalMonths} Months<br>
+        ${totalDays} Days<br>
+        ${remainingHours} Hours<br>
+        ${remainingMinutes} Minutes<br>
+        ${remainingSeconds} Seconds
+      `;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000); // Update every second
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dear Love</title>
+  <style>
+    /* Body Styling */
+    body {
+      font-family: "Press Start 2P", cursive;
+      background: #ffc0cb;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Letter Container */
+    .letter-container {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      text-align: left;
+      position: relative;
+    }
+
+    /* Title Styling */
+    .letter-container h1 {
+      font-size: 1.8em;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+
+    /* Paragraph Styling */
+    .letter-container p {
+      font-size: 1em;
+      line-height: 1.6em;
+      margin-bottom: 20px;
+    }
+
+    /* Signature Styling */
+    .letter-container .signature {
+      font-size: 1em;
+      font-style: italic;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    /* Heart Icon */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: #d6336c;
+      clip-path: path("M 25 10 C 25 -5, 50 -5, 50 10 C 50 25, 25 40, 25 50 C 25 40, 0 25, 0 10 C 0 -5, 25 -5, 25 10 Z");
+      animation: beat 2s infinite ease-in-out;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #d6336c;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    }
+
+    .navbar ul li {
+      margin: 5px 10px; /* Adjust spacing for mobile */
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.9em; /* Slightly smaller font for mobile */
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffcccb;
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="letter.html">Letter</a></li>
+        </ul>
+      </div>
+  <div class="letter-container">
+    <h1>Dear Babe,</h1>
+    <p>
+      My babe, I just want you to know how truly thankful I am that you came into my life nyhehe. You’ve filled my days with happiness, love, and purpose. Every moment with you is a treasure, and I feel so blessed to have you by my side.
+    </p>
+    <p>
+    Thank you, for all the days that you made me feel loved and appreciated. I am out of words to tell how grateful I am to have you my babe. I love you always mwaaaaaaaaaaaapsssssss.
+    </p>
+    <div class="signature" style="text-align: right;">
+      With Love,<br>
+      Your Babe ❤️ 
+    </div>
+    <div class="heart"></div>
+  </div>
+
+  
+  
+</body>
+</html>

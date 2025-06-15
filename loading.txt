@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relationship Counter</title>
+  <style>
+    /* Body Styling */
+    body {
+      font-family: "Press Start 2P", cursive;
+      background: linear-gradient(to bottom, #ffd1dc, #ffe4e1);
+      color: #d6336c;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Counter Container */
+    .counter-container {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* Title Styling */
+    .counter-container h1 {
+      font-size: 1.5em;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+
+    /* Counter Styling */
+    .counter {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.8em;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Time We've Spent Together</h1>
+    <div class="counter" id="counter">Loading...</div>
+  </div>
+
+  <script>
+    const startDate = new Date("2024-10-29T09:54:00"); // Start date
+
+    function updateCounter() {
+      const now = new Date();
+      const diffMs = now - startDate;
+
+      const totalYears = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365));
+      const totalMonths = Math.floor((diffMs % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+      const totalDays = Math.floor((diffMs % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      const remainingHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const remainingMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      const remainingSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+      document.getElementById("counter").innerHTML = `
+        ${totalYears} Years<br>
+        ${totalMonths} Months<br>
+        ${totalDays} Days<br>
+        ${remainingHours} Hours<br>
+        ${remainingMinutes} Minutes<br>
+        ${remainingSeconds} Seconds
+      `;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000); // Update every second
+  </script>
+</body>
+</html>
